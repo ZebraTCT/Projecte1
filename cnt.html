@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Tienda de Electrodomésticos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 100px; /* AlÃ§ada mÃ©s gran del logo */
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        /* Estils del nav */
+        nav {
+            background-color: #264653;
+            padding: 10px;
+            text-align: center;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease; /* TransiciÃ³ suau en 0.5s */
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            opacity: 0; /* ComenÃ§a invisible */
+            transition: opacity 0.3s ease-in-out; /* TransiciÃ³ de l'opacitat */
+            position: relative;
+        }
+
+        /* Afegir barra vertical entre enllaÃ§os */
+        nav a:not(:last-child)::after {
+            content: '|';
+            color: white;
+            margin-left: 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quan el nav es visible */
+        nav.show {
+            max-height: 200px; /* Fixa una alÃ§ada mÃ xima adequada */
+        }
+
+        nav.show a {
+            opacity: 1; /* Torna els enllaÃ§os visibles */
+        }
+
+ .hero {
+            background-image: url('https://example.com/contacto.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        .contacto {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            color: #264653;
+            font-size: 24px;
+        }
+
+        .contacto form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contacto form input, 
+        .contacto form textarea {
+            width: 100%;
+            padding: 10px 0;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .contacto form button {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contacto form button:hover {
+            background-color: #21867a;
+        }
+
+        .footer {
+            background-color: #264653;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img id="logo" src="logo.png" alt="Logo de la Tienda">
+        <h1>Tienda de Electrodomésticos</h1>
+    </header>
+
+    <nav id="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="product.html">Productos</a>
+        <a href="dsc.html">Ofertas</a>
+        <a href="cnt.html">Contacto</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Contacto</h1>
+    </section>
+
+    <section class="contacto">
+        <h2>Envíanos un mensaje</h2>
+        <form action="#" method="post">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+            <textarea name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Tienda de Electrodomésticos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const logo = document.getElementById('logo');
+        const navbar = document.getElementById('navbar');
+        let navFixed = false; // Estat per saber si el nav estÃ  fixat
+
+        // Mostrar nav quan el ratolÃ­ estÃ  sobre el logo
+        logo.addEventListener('mouseover', function() {
+            if (!navFixed) {
+                navbar.classList.add('show'); // Afegeix la classe show per mostrar el nav
+            }
+        });
+
+        // Amagar nav quan el ratolÃ­ surt del logo si no estÃ  fixat
+        logo.addEventListener('mouseout', function() {
+            if (!navFixed) {
+                navbar.classList.remove('show'); // Treu la classe show per amagar el nav
+            }
+        });
+
+        // Fixar o desfixar el nav al clicar el logo
+        logo.addEventListener('click', function(event) {
+            navFixed = !navFixed; // Alterna entre fixar i desfixar
+            if (navFixed) {
+                navbar.classList.add('show');
+            } else {
+                navbar.classList.remove('show');
+            }
+        });
+
+        // Amagar nav quan es fa clic fora del nav o del logo
+        document.addEventListener('click', function(event) {
+            const isClickInsideLogo = logo.contains(event.target);
+            const isClickInsideNav = navbar.contains(event.target);
+
+            if (!isClickInsideLogo && !isClickInsideNav) {
+                navFixed = false;
+                navbar.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+</html>
