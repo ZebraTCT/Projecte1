@@ -3,78 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofertas - Tienda de Electrodomésticos</title>
+    <title>Descomptes - Tenda de Electrodomèstics</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #2a9d8f;
         }
 
         header {
             background-color: #2a9d8f;
-            color: white;
+            color: #264653;
             padding: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            top: 0px;
+            width: 100%;
+            z-index: 1000;
         }
 
         header img {
-            height: 100px; /* Alçada més gran del logo */
-            margin-right: 20px;
-            cursor: pointer;
+            height: 100px; /* grandaria del logo */
+            margin-right: 95px;
         }
 
         header h1 {
-            font-size: 24px;
-            margin: 0;
+            font-size: 34px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 15px;
+            margin-right: 70px;
         }
+        
+        header input {
+            width: 400px;
+            height: 30px;
+            border: 0px solid #ddd;
+            border-radius: 20px;
+            background-color: #264653;
+            color: white;
+        }
+      
 
+    
+        /* Estils del nav */
         /* Estils del nav */
         nav {
             background-color: #264653;
             padding: 10px;
             text-align: center;
-            max-height: 0;
+            max-height: 0.5;
             overflow: hidden;
-            transition: max-height 0.5s ease; /* Transició suau en 0.5s */
+            position: sticky;
+            top: 0;
+            border: 1px #264653;
+            width: 100%;
+            padding: 10px 0;
+            z-index: 1000;
+            
         }
 
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 5px;
             text-decoration: none;
             font-size: 18px;
             display: inline-block;
-            opacity: 0; /* Comença invisible */
-            transition: opacity 0.3s ease-in-out; /* Transició de l'opacitat */
-            position: relative;
+            padding: 5px 25px 5px 25px;
         }
 
-        /* Afegir barra vertical entre enllaços */
-        nav a:not(:last-child)::after {
-            content: '|';
-            color: white;
-            margin-left: 10px;
-        }
+        .pagina {
+           display: inline-block;
+           border-radius: 5px;
+           margin-right: 0px;
+           background-color: #264653;
+       }
+       
+       .pagina :hover{
+          transition: box-shadow 0.5s ease;
+          background-color: #21867a;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
 
-        /* Quan el nav és visible */
-        nav.show {
-            max-height: 200px; /* Fixa una alçada màxima adequada */
-        }
 
-        nav.show a {
-            opacity: 1; /* Torna els enllaços visibles */
-        }
-
-        .hero {
-            background-image: url('https://example.com/ofertas.jpg');
+       .hero {
             background-size: cover;
             background-position: center;
             height: 300px;
@@ -82,32 +97,39 @@
             justify-content: center;
             align-items: center;
             color: white;
+            margin-top: 100px;
+            padding: 20px;
         }
 
         .hero h1 {
             font-size: 48px;
             background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
+            border-radius: 10px;
         }
 
         .productos {
             display: flex;
             justify-content: space-around;
-            margin: 20px;
+            margin: 10px;
+            margin-top: 20px;
+            
         }
+       
 
         .producto {
             background-color: white;
-            border: 1px solid #ddd;
             padding: 15px;
             width: 30%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            border-radius: 20px;
         }
-
+       
         .producto img {
             width: 100%;
             height: auto;
+            max-width: 150px;
         }
 
         .producto h2 {
@@ -119,96 +141,82 @@
             font-size: 18px;
             color: #333;
         }
-
         .footer {
             background-color: #264653;
             color: white;
-            text-align: center;
+            text-align: left;
             padding: 20px;
-            position: absolute;
+            position: sticky;
             width: 100%;
             bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer p{
+            margin-left: 20px;
+        }
+        
+        .esquerra {
+            text-align: left;
+        }
+
+        .dreta {
+            text-align: right;
+            margin-right: 50px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <img id="logo" src="logo.png" alt="Logo de la Tienda">
-        <h1>Tienda de Electrodomésticos</h1>
+        <a href="index.html"><img id="logo" src="logo.png" alt="Logo de la Tienda"></a>
+        <form>
+            <input type="text" name="Buscar" placeholder="  🔎 Buscador no implenentat.">
+        </form>
+        <h1>TECNOLLAR</h1>
     </header>
 
     <nav id="navbar">
-        <a href="index.html">Inicio</a>
-        <a href="product.html">Productos</a>
-        <a href="dsc.html">Ofertas</a>
-        <a href="cnt.html">Contacto</a>
+        <div class="pagina">
+            <a href="index.html">Inici</a>
+        </div>
+        <div class="pagina">
+            <a href="product.html">Productes</a>
+        </div>
+        <div class="pagina">
+            <a href="dsc.html">Descomptes</a>
+        </div>
+        <div class="pagina">
+            <a href="cnt.html">Sobre Nosaltres</a>
+        </div>
     </nav>
 
     <section class="hero">
-        <h1>Nuestras Ofertas</h1>
+        <h1>Els Nostres Descomptes</h1>
     </section>
 
     <section class="productos">
         <div class="producto">
-            <img src="https://example.com/lavadora.jpg" alt="Lavadora">
-            <h2>Lavadora</h2>
-            <p><del>$500</del> $450</p>
+            <img src="https://thumb.pccomponentes.com/w-530-530/articles/1083/10838188/1378-origial-oriwm8aw-24-lavadora-carga-frontal-8kg-a-blanco-comprar.jpg" alt="Rentadora">
+            <h2><a href="https://www.pccomponentes.com/origial-oriwm8aw-24-prowash-inverter-lavadora-carga-frontal-8kg-a-blanco">Origial ORIWM8AW-24 </a></h2>
+            <p><del>319,89€</del> 289,00€</p>
         </div>
         <div class="producto">
-            <img src="https://example.com/refrigerador.jpg" alt="Refrigerador">
-            <h2>Refrigerador</h2>
-            <p><del>$1200</del> $1100</p>
+            <img src="https://thumb.pccomponentes.com/w-530-530/articles/1084/10845460/1475-lg-gsxe80pybdapyqeur-frigorifico-side-by-side-serie-800-con-instaview-door-in-door-628l-inox-d.jpg" alt="Nevera">
+            <h2><a href="https://www.pccomponentes.com/lg-gsxe80pybdapyqeur-frigorifico-side-by-side-serie-800-con-instaview-door-in-door-628l-inox-d">LG GSXE80PYBD.APYQEUR</a></h2>
+            <p><del>1.969€</del> 1649,00€</p>
         </div>
         <div class="producto">
-            <img src="https://example.com/microondas.jpg" alt="Microondas">
-            <h2>Microondas</h2>
-            <p><del>$200</del> $180</p>
+            <img src="https://thumb.pccomponentes.com/w-530-530/articles/25/250446/a23.jpg" alt="Microones">
+            <h2><a href="https://www.pccomponentes.com/bosch-serie-6-bel554ms0-microondas-integrable-25l-900w-negro-inox">Bosch Serie 6 BEL554MS0</a></h2>
+            <p><del>449€</del> 307,99€</p>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 Tienda de Electrodomésticos. Todos los derechos reservados.</p>
+        <p class="esquerra">&copy; 2024 Tenda de Electrodomèstics. Tots els drets reservats a TecnoLlar SL.</p>
+        <p class="dreta">Trucans al +34 658 28 18 02</p>
     </footer>
-<script>
-        const logo = document.getElementById('logo');
-        const navbar = document.getElementById('navbar');
-        let navFixed = false; // Estat per saber si el nav estÃ  fixat
-
-        // Mostrar nav quan el ratolÃ­ estÃ  sobre el logo
-        logo.addEventListener('mouseover', function() {
-            if (!navFixed) {
-                navbar.classList.add('show'); // Afegeix la classe show per mostrar el nav
-            }
-        });
-
-        // Amagar nav quan el ratolÃ­ surt del logo si no estÃ  fixat
-        logo.addEventListener('mouseout', function() {
-            if (!navFixed) {
-                navbar.classList.remove('show'); // Treu la classe show per amagar el nav
-            }
-        });
-
-        // Fixar o desfixar el nav al clicar el logo
-        logo.addEventListener('click', function(event) {
-            navFixed = !navFixed; // Alterna entre fixar i desfixar
-            if (navFixed) {
-                navbar.classList.add('show');
-            } else {
-                navbar.classList.remove('show');
-            }
-        });
-
-        // Amagar nav quan es fa clic fora del nav o del logo
-        document.addEventListener('click', function(event) {
-            const isClickInsideLogo = logo.contains(event.target);
-            const isClickInsideNav = navbar.contains(event.target);
-
-            if (!isClickInsideLogo && !isClickInsideNav) {
-                navFixed = false;
-                navbar.classList.remove('show');
-            }
-        });
-    </script>
 </body>
 </html>
